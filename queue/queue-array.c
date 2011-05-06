@@ -58,20 +58,46 @@ ELEMENT a_get_element(QUEUE_ARRAY * queue, int index){
 	return queue -> elementen[index];
 }
 
-void a_offer(QUEUE_ARRAY * queue, ELEMENT * element) {
-
+void a_offer(QUEUE_ARRAY * queue, ELEMENT element) {
+	a_add_element(queue, element, queue -> grootte);
 }
 
-ELEMENT * a_poll(QUEUE_ARRAY * QUEUE) {
-
+ELEMENT a_poll(QUEUE_ARRAY * queue) {
+	ELEMENT element = queue -> elementen[0];
+	// Elementen allemaal shiften omlaag shiften...
+	int teller = 0;
+	for (teller = 0; teller < (queue -> grootte); teller ++) {
+		queue -> elementen[teller] = queue -> elementen[teller + 1];
+	}
+	queue -> grootte -= 1;
+	return element;
 }
 
-ELEMENT * a_peek(QUEUE_ARRAY * QUEUE) {
+ELEMENT a_peek(QUEUE_ARRAY * queue) {
+	return a_get_element(queue, 0);
+}
 
+void a_print_queue(QUEUE_ARRAY * queue) {
+	int teller = 0;
+	for (teller = 0; teller < queue -> grootte; teller ++)
+		printf("%d: %s \n", teller, queue -> elementen[teller]);
 }
 
 
 
 void queue_array() {
-
+	QUEUE_ARRAY * myQueue = a_new_queue();
+	a_offer(myQueue,"Jan");
+	a_offer(myQueue,"Dirk");
+	a_offer(myQueue,"Peter");
+	a_print_queue(myQueue);
+	ELEMENT element = a_poll(myQueue);
+	printf("Polling %s\n", element);
+	a_print_queue(myQueue);
+	element = a_poll(myQueue);
+	printf("Polling %s\n", element);
+	a_print_queue(myQueue);
+	element = a_poll(myQueue);
+	printf("Polling %s\n", element);
+	a_print_queue(myQueue);
 }
