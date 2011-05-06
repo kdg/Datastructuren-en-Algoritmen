@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : stacklinkedlist.c
+ Author      : Yvan Janssens
+ Version     :
+ Copyright   : (c) Yvan Jansses 2011 (INF105B)
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,7 +21,7 @@ typedef struct node_structure {
 typedef struct {
 	NODE* startNode;
 	int size;
-} STACK; 
+} STACK;
 
 //creatie
 STACK *newStack() {
@@ -31,26 +41,33 @@ NODE* newNode(ELEMENT element){
 
 //Een nieuw element bovenaan op de stapel leggen:
 void push(STACK* stack, ELEMENT element){
-	//Vul aan...
+	NODE * node = newNode(element);
+	node->next = stack->startNode;
+	stack->startNode = node;
 }
 
 //Het laatste element van de stapel halen
 ELEMENT pop(STACK* stack){
-	//Vul aan...
-	return NULL;
+	ELEMENT element = * stack -> startNode -> element;
+	stack -> startNode = stack -> startNode -> next;
+	return element;
 }
 
 //Opvragen van het laatst toegevoegde element
 ELEMENT peek(STACK* stack){
 	//Vul aan...
-	return NULL;
+	return stack -> startNode -> element;
 }
 
 //Printen
 void printStack(STACK* stack){
 	printf("Stack:\n");
-	//Vul aan...
-	
+	NODE * node  = stack -> startNode;
+	while (node != NULL ) {
+		printf(" node -> element = '%s'\n", node -> element);
+		node = node -> next;
+	}
+
 }
 
 int main(int argc, char **argv) {
