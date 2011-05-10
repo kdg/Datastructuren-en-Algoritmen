@@ -1,0 +1,8 @@
+Hash-implementatie map
+---------------------------
+
+Maakt gebruik van CRC32 codering
+	cfr. http://www.koders.com/c/fid699AFE0A656F0022C9D6B9D1743E697B69CE5815.aspx
+
+Auteur: Yvan Janssens
+	janssensyvan@telenet.be
