@@ -27,7 +27,7 @@ void put(MAP* map,ELEMENT key, ELEMENT value){
 	
 	int pos = -1;
 	int i = 0;	
-	for (i=0;i<map->size;x++) {
+	for (i=0;i<map->size;i++) {
 		if (strcmp(key, map -> keys[i]) == 0)
 		{
 			pos = i;
@@ -49,7 +49,7 @@ ELEMENT get(MAP* map,ELEMENT key){
 	
 	for (i = 0; i < map -> size; i++) {
 		if (strcmp(key, map -> keys[i]) == 0) {
-			return map -> elements[i];
+			return map -> values[i];
 		}
 	}
 }
