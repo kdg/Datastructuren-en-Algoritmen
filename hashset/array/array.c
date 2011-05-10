@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_SIZE 10000
 
@@ -66,7 +67,17 @@ int getKeyIndex(MAP* map, ELEMENT key) {
 }
 
 void removePair(MAP* map, ELEMENT key){
-   // hier uitwerken	
+  	// hier uitwerken
+	int x = 0;
+	int p = getKeyIndex(map, key);
+	if (p != -1) {
+		for ( x = map -> size; x > p; size --) {
+			map -> keys [x - 1] = map -> keys[x];
+			map -> values [x - 1] = map -> values[x];
+		}
+		map -> size --; 
+	}	
+	
 }
 
 void printMap(MAP* map){
