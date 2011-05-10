@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
 	while (invoer != 0x4D && invoer != 0x6D) // 0x4D = 'M', 0x6D = 'm'
 	{
 		invoer = getchar();
-		if (invoer == 0x4D) //M
+		if (invoer == 0x4D) //M 'M' = 0x4D 0x00
 			break;
 		if (invoer == 0x6D) //m
 			break;
