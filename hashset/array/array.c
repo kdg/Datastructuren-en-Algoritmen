@@ -71,11 +71,11 @@ void removePair(MAP* map, ELEMENT key){
 	int x = 0;
 	int p = getKeyIndex(map, key);
 	if (p != -1) {
-		for ( x = map -> size; x > p; size --) {
+		for ( x = map -> size; x > p; x --) {
 			map -> keys [x - 1] = map -> keys[x];
 			map -> values [x - 1] = map -> values[x];
 		}
-		map -> size --; 
+		map -> size --;
 	}	
 	
 }
