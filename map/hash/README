@@ -6,3 +6,14 @@ Maakt gebruik van CRC32 codering
 
 Auteur: Yvan Janssens
 	janssensyvan@telenet.be
+
+compilatieinstructies:
+	gcc -c -o crc32.o crc32.c
+	gcc -c -o hashmap.o hashmap.c
+	gcc -c -o hashtest.o hashtest.c
+
+Link-instructies:
+	voor test:
+	gcc -o hashtest hashtest.o crc32.o
+	voor oefening:
+	gcc -o hashmap hashmap.o crc32.o
