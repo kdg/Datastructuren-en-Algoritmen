@@ -21,7 +21,10 @@ MAP* newMap() {
 }
 
 void put(MAP* map,ELEMENT key, ELEMENT value){
- 	// hier uitwerken	
+ 	// hier uitwerken
+	if (map -> size >= MAX_SIZE)
+		return;
+	
 	int pos = -1;
 	int i;	
 	for (i=0;i<map->size;x++) {
