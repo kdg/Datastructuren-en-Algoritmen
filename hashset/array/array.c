@@ -12,11 +12,19 @@ typedef struct {
 } MAP;
 
 MAP* newMap() {
- // hier uitwerken
+ 	// hier uitwerken
+  	MAP * retval = malloc(sizeof(MAP));
+	retval -> keys = calloc(MAX_SIZE, sizeof(ELEMENT));
+	retval -> values = calloc(MAX_SIZE, sizeof(ELEMENT));
+	retval -> size = 0;
+	return retval;
 }
 
 void put(MAP* map,ELEMENT key, ELEMENT value){
- // hier uitwerken	
+ 	// hier uitwerken	
+	map -> keys [map -> size] = key;
+	map -> values [map -> size] = value;
+	map -> size ++;
 }
 
 ELEMENT get(MAP* map,ELEMENT key){
