@@ -22,9 +22,23 @@ MAP* newMap() {
 
 void put(MAP* map,ELEMENT key, ELEMENT value){
  	// hier uitwerken	
-	map -> keys [map -> size] = key;
-	map -> values [map -> size] = value;
-	map -> size ++;
+	int pos = -1;
+	int i;	
+	for (i=0;i<map->size;x++) {
+		if (strcmp(key, map -> keys[i]) == 0)
+		{
+			pos = i;
+			break; // spaghetti, maar snelheidswinst bij groot aantal records.
+		}
+	}
+	if (pos == -1) {
+		pos = map->size;
+		map->size ++;
+	}
+
+	map -> keys [pos] = key;
+	map -> values [pos] = value;
+
 }
 
 ELEMENT get(MAP* map,ELEMENT key){
