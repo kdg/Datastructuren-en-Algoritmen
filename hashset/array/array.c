@@ -57,9 +57,10 @@ ELEMENT get(MAP* map,ELEMENT key){
 int getKeyIndex(MAP* map, ELEMENT key) {
 	int i;
 	for (i= 0;i<map->size;i++) {
-		if (map->keys[i] == key) {
+		// fout!!:
+		//if (map->keys[i] == key)
+		if (strcmp(map->keys[i], key) == 0) 
 			return i;	
-		}
 	}
 	return -1;
 }
